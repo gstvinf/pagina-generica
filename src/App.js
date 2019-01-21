@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import Page1 from './pages/Page1';
-import { Nav, NavItem } from 'react-bootstrap';
+import Page1 from './pages/Page1';
+// import PrimarySearchAppBar from './pages/Header';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>Teste1</h1>
+        { /** <PrimarySearchAppBar /> */}
         <header className="App-header">
 
-          {/* <Page1 /> */}
+
+          <Page1 />
 
           {/*<img src={logo} className="App-logo" alt="logo" />*/}
           <p>
@@ -24,41 +27,6 @@ class App extends Component {
           >
             Learn React
           </a>
-          <div>
-            <Nav
-              bsStyle="tabs"
-              justified
-              activeKey={1}
-              onSelect={key => this.handleSelect(key)}
-            >
-              <NavItem eventKey={1} href="/home">
-                NavItem 1 content
-          </NavItem>
-              <NavItem eventKey={2} title="Item">
-                NavItem 2 content
-          </NavItem>
-              <NavItem eventKey={3} disabled>
-                NavItem 3 content
-          </NavItem>
-            </Nav>
-            <br />
-            <Nav
-              bsStyle="pills"
-              justified
-              activeKey={1}
-              onSelect={key => this.handleSelect(key)}
-            >
-              <NavItem eventKey={1} href="/home">
-                NavItem 1 content
-          </NavItem>
-              <NavItem eventKey={2} title="Item">
-                NavItem 2 content
-          </NavItem>
-              <NavItem eventKey={3} disabled>
-                NavItem 3 content
-          </NavItem>
-            </Nav>
-          </div>
         </header>
 
 
