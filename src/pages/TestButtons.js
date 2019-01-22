@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button, Fade, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Fade, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 // import styles from './styles';
 
@@ -13,21 +13,30 @@ export default class TestButtons extends Component {
       longClick: false,
       doubleClick: false,
       delay: false,
+      modal: false,
+      nestedModal: false,
+      closeAll: false,
     };
 
     this.clickCount = 0;
     this.singleClickTimer = '';
 
-    this.toggleIn = this.toggleIn.bind(this);
-    this.toggleOut = this.toggleOut.bind(this);
+    this.toggleFadeIn = this.toggleFadeIn.bind(this);
+    this.toggleFadeOut = this.toggleFadeOut.bind(this);
     this.doubleClickHandle = this.doubleClickHandle.bind(this);
     this.longClickHandle = this.longClickHandle.bind(this);
     this.delayClickHandle = this.delayClickHandle.bind(this);
+
+    this.toggleModal = this.toggleModal.bind(this);
+    this.toggleModalNested = this.toggleModalNested.bind(this);
+    this.toggleModalAll = this.toggleModalAll.bind(this);
   }
-  toggleIn() {
+
+  toggleFadeIn() {
     this.setState({ fadeIn: !this.state.fadeIn });
   }
-  toggleOut() {
+
+  toggleFadeOut() {
     this.setState({ fadeOut: !this.state.fadeOut });
   }
 
@@ -43,13 +52,35 @@ export default class TestButtons extends Component {
       this.setState({ doubleClick: !this.state.doubleClick });
     }
   }
+
   longClickHandle() {
     this.setState({ longClick: !this.setState.longClick });
   }
+
   delayClickHandle() {
     this.buttonPressTimer = setTimeout(() =>
       this.setState({ delay: !this.setState.delay })
       , 3000);
+  }
+
+  toggleModal() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  toggleModalNested() {
+    this.setState({
+      nestedModal: !this.state.nestedModal,
+      closeAll: false
+    });
+  }
+
+  toggleModalAll() {
+    this.setState({
+      nestedModal: !this.state.nestedModal,
+      closeAll: true
+    });
   }
 
   render() {
@@ -58,7 +89,7 @@ export default class TestButtons extends Component {
         <FormGroup >
 
           <FormGroup>
-            <Button color="primary" onClick={this.toggleIn}>Click para verificar a mensagem</Button>
+            <Button color="primary" onClick={this.toggleFadeIn}>Click para verificar a mensagem</Button>
             <Fade in={this.state.fadeIn}>
               Você clicou no botão e aqui está sua mensagem :)
             </Fade>
@@ -86,10 +117,34 @@ export default class TestButtons extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Button color="danger" onClick={this.toggleOut}>Click para esconder a mensagem</Button>
+            <Button color="danger" onClick={this.toggleFadeOut}>Click para esconder a mensagem</Button>
             <Fade in={this.state.fadeOut}>
               Essa mensagem deixará de existir. ^^
             </Fade>
+          </FormGroup>
+
+          <FormGroup>
+            <Button color="dark" onClick={this.toggleModal}>Botão do Modal</Button>
+            <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+              <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
+              <ModalBody>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <br />
+                <Button color="success" onClick={this.toggleModalNested}>Show Nested Modal</Button>
+                <Modal isOpen={this.state.nestedModal} toggle={this.toggleModalNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
+                  <ModalHeader>Nested Modal title</ModalHeader>
+                  <ModalBody>Stuff and things</ModalBody>
+                  <ModalFooter>
+                    <Button color="primary" onClick={this.toggleModalNested}>Done</Button>{' '}
+                    <Button color="secondary" onClick={this.toggleModalAll}>All Done</Button>
+                  </ModalFooter>
+                </Modal>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={this.toggleModal}>Do Something</Button>{' '}
+                <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+              </ModalFooter>
+            </Modal>
           </FormGroup>
 
         </FormGroup>

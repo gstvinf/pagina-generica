@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { setStatic } from 'recompose';
 
+import TestText from './TestText';
 import TestButtons from './TestButtons';
 
 // import styles from './styles';
@@ -12,7 +13,10 @@ export default class Formulario extends Component {
     return (
       <Form>
 
+        <TestText />
+
         <TestButtons />
+
 
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
