@@ -5,6 +5,7 @@ import { setStatic } from 'recompose';
 
 import TestText from './TestText';
 import TestButtons from './TestButtons';
+import TestCheckbox from './TestCheckbox';
 
 // import styles from './styles';
 
@@ -13,6 +14,7 @@ export default class Formulario extends Component {
     return (
       <Form>
 
+        <TestCheckbox />
         <TestText />
 
         <TestButtons />

@@ -1,3 +1,29 @@
+# Checklist 
+
+## Componentes
+
+[ ] checkbox
+[ ] dropdown
+[ ] input text
+[ ] email
+[ ] password
+[ ] cpf
+[ ] cnpj
+[ ] data
+[ ] mascaras
+[ ] datas
+
+## Validações
+
+[ ] mensagens
+[ ] parte de mensagem
+[ ] mensagens com delay
+[ ] url
+[ ] aba
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
