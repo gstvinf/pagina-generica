@@ -13,11 +13,12 @@ export default class Formulario extends Component {
   render() {
     return (
       <Form>
-
+        
+        <TestButtons />
         <TestCheckbox />
         <TestText />
 
-        <TestButtons />
+
 
 
         <FormGroup>

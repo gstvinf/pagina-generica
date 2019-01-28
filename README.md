@@ -2,7 +2,8 @@
 
 ## Componentes
 
-[ ] checkbox
+[x] checkbox
+[x] button
 [ ] dropdown
 [ ] input text
 [ ] email

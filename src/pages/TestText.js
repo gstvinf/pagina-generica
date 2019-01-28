@@ -8,6 +8,7 @@ export default class TestText extends Component {
   render() {
     return (
       <Form>
+        <h2>Text</h2>
         <FormGroup row>
           <Label for="exampleEmail" sm={2}>Email</Label>
           <Col sm={10}>
