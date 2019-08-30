@@ -2,25 +2,25 @@
 
 ## Componentes
 
-[x] checkbox
-[x] button
-[ ] dropdown
-[ ] input text
-[ ] email
-[ ] password
-[ ] cpf
-[ ] cnpj
-[ ] data
-[ ] mascaras
-[ ] datas
+- [x] checkbox
+- [x] button
+- [ ] dropdown
+- [ ] input text
+- [ ] email
+- [ ] password
+- [ ] cpf
+- [ ] cnpj
+- [ ] data
+- [ ] mascaras
+- [ ] datas
 
 ## Validações
 
-[ ] mensagens
-[ ] parte de mensagem
-[ ] mensagens com delay
-[ ] url
-[ ] aba
+- [ ] mensagens
+- [ ] parte de mensagem
+- [ ] mensagens com delay
+- [ ] url
+- [ ] aba
 
 
 
